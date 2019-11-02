@@ -14,5 +14,12 @@ import java.io.IOException;
  */
 public interface RoleLoader {
     
+    /**
+     * Load roles from the CSV file if it exists
+     * 
+     * Per line, discover
+     * 
+     * @throws IOException if file does not exist or other IO issues
+     */
     public void LoadRoles() throws IOException;
 }

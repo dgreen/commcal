@@ -15,7 +15,10 @@ import java.util.ArrayList;
  */
 public class TestCSVCalendarLoader {
 
-    
+    /**
+     * Test the CSVCalendarLoader with a test file
+     * @param args 
+     */
     public static void main(String[] args) {
         
         Calendar calendar = null;

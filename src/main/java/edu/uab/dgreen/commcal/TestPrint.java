@@ -16,6 +16,10 @@ public class TestPrint {
 
     private static ArrayList<Activity> activities;
     
+    /**
+     * run the testing of TextCalendarPrint methods
+     * @param args 
+     */
     public static void main(String[] args) {
         activities = new ArrayList<>();
         

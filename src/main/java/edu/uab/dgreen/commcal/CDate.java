@@ -2,7 +2,7 @@
  * File: CDate.java
  * Author: David G. Green dgreen@uab.edu
  * Assignment:  commcal - EE333 Fall 2019
- * Vers: 1.0.0 10/19/2019 dgg - initial coding
+ * Vers: 1.0.1 11/02/2019 dgg - initial coding
  */
 package edu.uab.dgreen.commcal;
 
@@ -45,6 +45,16 @@ public class CDate implements Comparable<CDate> {
         return monthRange;
     }
 
+    /**
+     * Compare two cdates
+     * @param cdate second cDate
+     * 
+     * Note the sort is non-intuitive.  Since at most one year will be output and
+     * we want all a month's items together regardless whether it is each/even or each/odd
+     * we need to look at month first and the sort less importantly the years.
+     * 
+     * @return -1 if base object comes earlier, 0 if same, +1 if base object comes later
+     */
     @Override
     public int compareTo(CDate cdate) {
         int result = monthRange.compareTo(cdate.getMonth());
@@ -53,38 +63,4 @@ public class CDate implements Comparable<CDate> {
         }
         return result;
     }
-    
-    /**
-     * Determine if object equals this CDate
-     *   1. Must be a CDate
-     *   2. Must be equal on year and month (by their rules)
-     * @param o
-     * @return 
-     */
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) {
-//            return true;
-//        } else if (! (o instanceof CDate) ) {
-//            return false;
-//        } else {
-//            CDate cd = (CDate) o;
-//            return year.equals(cd.getYear()) && monthRange.equals(cd.getMonth());
-//        }
-//    }
-//
-//    /** 
-//     * Generate hashCode for CDates
-//     * 
-//     * This is an NetBeans auto-generated code
-//     * 
-//     * @return hash code
-//     */
-//    @Override
-//    public int hashCode() {
-//        int hash = 7;
-//        hash = 71 * hash + Objects.hashCode(this.year);
-//        hash = 71 * hash + Objects.hashCode(this.monthRange);
-//        return hash;
-//    }
 }
