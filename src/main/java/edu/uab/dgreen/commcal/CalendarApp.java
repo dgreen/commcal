@@ -23,7 +23,6 @@ public class CalendarApp {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println("Starting");
         CalendarApp app = new CalendarApp();
         app.run(args);
     }
@@ -91,7 +90,8 @@ public class CalendarApp {
             activities = theCalendar.extract(year, theRole);
         }
         
-        CalendarPrinter cp = new TextCalendarPrinter();
+        // CalendarPrinter cp = new TextCalendarPrinter();
+        CalendarPrinter cp = new MDCalendarPrinter();
         cp.print(activities, year);
     }
 }

@@ -4,6 +4,9 @@ Director*,Past Director
 Director,ExCom
 Director-Elect,ExCom
 Past-Director,ExCom
+Director,Finance
+Director-Elect,Finance
+Past-Director,Finance
 Secretary,ExCom
 Treasurer,ExCom
 N&A,ExCom
