@@ -35,7 +35,7 @@ public class TestCSVRoleLoader {
         
         ArrayList<Role> allRoles = all.getContainedRoles();
         
-        if (allRoles.size() != 5) {
+        if (allRoles.size() != 6) {
             System.out.println("Wrong numbe of roles");
         }
 

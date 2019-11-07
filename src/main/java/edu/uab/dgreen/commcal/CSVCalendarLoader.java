@@ -2,6 +2,7 @@
  * File: CSVCalendarLoader.java
  * Author: David G. Green dgreen@uab.edu
  * Assignment:  commcal - EE333 Fall 2019
+ * Vers: 1.1.0 11/07/2019 dgg - use first row as a header row
  * Vers: 1.0.0 10/18/2019 dgg - initial coding
  *
  * Credits:  
@@ -50,13 +51,13 @@ public class CSVCalendarLoader implements CalendarLoader {
         
         Reader in = new FileReader(csvFileName);
 
-        CSVParser csvParser = CSVFormat.DEFAULT.parse(in);
+        Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
 
-        for (CSVRecord record : csvParser) {
-           String sYear = record.get(0);
-           String sMonth = record.get(1);
-           String sRole = record.get(2);
-           String description = record.get(3);
+        for (CSVRecord record : records) {
+           String sYear = record.get("Year");
+           String sMonth = record.get("Month");
+           String sRole = record.get("Role");
+           String description = record.get("Description");
            CDate cdate = new CDate(YearType.valueOf(sYear.toUpperCase()), sMonth);
            Role role = Role.find(sRole);
            Activity activity = new Activity(cdate, description, role);

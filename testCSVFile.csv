@@ -1,6 +1,7 @@
-each,January,Director,A description for activity one
-even,January,Director,A description for activity two
-odd,January/February,Director,A description for activity three
-even,March,Director,A description for activity four
-each,April,ExCom,A description for activity five
-each,May,NewRole,A new Role task six
+Year,M,Month,Role,Description
+each,1,January,Director,A description for activity one
+even,1,January,Director,A description for activity two
+odd,1.5,January/February,Director,A description for activity three
+even,3,March,Director,A description for activity four
+each,4,April,ExCom,A description for activity five
+each,5,May,NewRole,A new Role task six
