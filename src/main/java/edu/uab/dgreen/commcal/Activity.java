@@ -2,6 +2,9 @@
  * File: Activity.java
  * Author: David G. Green dgreen@uab.edu
  * Assignment:  commcal - EE333 Fall 2019
+ * Vers: 1.1.0 11/22/2019 dgg - add sequence number to assist user in controlling
+ *                              order of items so that entry order provides
+ *                              guidance (beyond date, before role, for sorting)
  * Vers: 1.0.0 10/18/2019 dgg - initial coding
  */
 package edu.uab.dgreen.commcal;
@@ -15,6 +18,8 @@ public class Activity implements Comparable<Activity> {
     private CDate date;
     private String description;
     private Role role;
+    private int sequence;
+    private static int numberActivities = 0;
     
     /**
      * Create an activity
@@ -25,7 +30,8 @@ public class Activity implements Comparable<Activity> {
     public Activity(CDate date, String description, Role role) {
         this.date = date;
         this.description = description;
-        this.role = role;        
+        this.role = role; 
+        this.sequence = ++numberActivities;
     }
 
     /**
@@ -87,7 +93,9 @@ public class Activity implements Comparable<Activity> {
     }
 
     /**
-     * Implement compareTo for sorting, priority is date, then role then description
+     * Implement compareTo for sorting, priority is date, then order added to calendar,
+     * then role then description
+     * 
      * @param activity to compare against
      * @return negative if present sorts earlier than argument activity, 0 if equal, 
      * positive if sorts later 
@@ -96,9 +104,12 @@ public class Activity implements Comparable<Activity> {
     public int compareTo(Activity activity) {
         int result = date.compareTo(activity.getDate());
         if (result == 0) {
-            result = role.getName().compareTo(activity.getRole().getName());
-            if (result == 0) {
-                result = description.compareTo(activity.getDescription());
+            result = sequence - activity.sequence;
+            if ( result == 0 ) {
+                result = role.getName().compareTo(activity.getRole().getName());
+                if (result == 0) {
+                    result = description.compareTo(activity.getDescription());
+                }
             }
         }
         return result;        
