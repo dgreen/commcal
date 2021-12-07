@@ -15,36 +15,37 @@ import java.util.ArrayList;
  */
 public class TextCalendarPrinter implements CalendarPrinter {
 
-    /**
-     * print the list of activities
-     * 
-     * Year: {year}
-     * 
-     * Month\t| Role\t| Description
-     * 
-     * Note a Month string without a "/" in it, will end with two tabs
-     * 
-     * @param activities collection of activities in sorted order
-     * @param year year to print for the calendar
-     */
-    @Override
-    public void print(ArrayList<Activity> activities, int year) {
-        String month;
-        String role;
-        String description;
-        
-        System.out.println("Year: " + year);
-        System.out.println("====================================================");
-        
-        for (Activity activity : activities) {
-            month       = activity.getDate().getMonth().toString();
-            role        = activity.getRole().getName();
-            description = activity.getDescription();
-            
-            System.out.format("%20s | %-18s | %s",
-                              month, role,   description);
-            System.out.println("");
-        }
+  /**
+   * print the list of activities
+   *
+   * Year: {year}
+   *
+   * Month\t| Role\t| Description
+   *
+   * Note a Month string without a "/" in it, will end with two tabs
+   *
+   * @param activities collection of activities in sorted order
+   * @param calendarRoleName text for the role for this calendar
+   * @param year year to print for the calendar
+   */
+  @Override
+  public void print(ArrayList<Activity> activities, String calendarRoleName, int year) {
+    String month;
+    String role;
+    String description;
+
+    System.out.println("Role: " + calendarRoleName + " " + "Year: " + year);
+    System.out.println("====================================================");
+
+    for (Activity activity : activities) {
+      month = activity.getDate().getMonth().toString();
+      role = activity.getRole().getName();
+      description = activity.getDescription();
+
+      System.out.format("%20s | %-18s | %s",
+              month, role, description);
+      System.out.println("");
     }
- 
+  }
+
 }
